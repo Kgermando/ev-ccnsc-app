@@ -1,0 +1,55 @@
+<div class="login" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+  <div class="container">
+    <div *ngIf="isLoading">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div class="card border shadow p-3 mb-5 bg-white rounded text-center">
+      <form [formGroup]="signinform">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <img src="assets/img/logo.png" width="100px" height="100px" alt="Logo CCNSC RDC">
+          </div>
+          <div class="form-group col-md-12">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                type="email"
+                matInput
+                placeholder="Adresse mail"
+                formControlName="email"/>
+                <button mat-icon-button matSuffix>
+                  <mat-icon>person</mat-icon>
+                </button>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-12">
+            <mat-form-field appearance="outline">
+              <mat-label>Mot de Passe</mat-label>
+              <input
+                type="password"
+                matInput
+                placeholder="Votre mot de passe"
+                [type]="hide ? 'password' : 'text'"
+                formControlName="password"/>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-12">
+            <button
+                  type="submit"
+                  color="primary"
+                  mat-raised-button
+                  (click)="onSubmit()"
+                  [disabled]="!signinform.valid"
+                  class="btn">
+                  Login
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

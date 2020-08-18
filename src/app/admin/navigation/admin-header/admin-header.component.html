@@ -1,0 +1,38 @@
+<mat-toolbar color="accent" class="mat-elevation-z10">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSideBar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <!-- <a routerLink="/layouts" mat-button matTooltip="Fast Smart">
+            <img src="../assets/img/logo.png" alt="logo fast smart">
+        </a> -->
+        <h3>CCNSC-RDC Admin</h3>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <button mat-icon-button routerLink="/layouts/home">
+                        <mat-icon>home</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button routerLink="/admin/dashboard/profile">
+                        <mat-icon>person</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu" matTooltip="Menu Authentification">
+                        <mat-icon aria-hidden="false" aria-label="Emergence et developpement profile">person_outline</mat-icon>
+                      </button> 
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="signOut()">
+                          <mat-icon aria-hidden="false" aria-label="Profile Emergence et developpement">exit_to_app</mat-icon>
+                          Déconnexion 
+                        </button>
+                      </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

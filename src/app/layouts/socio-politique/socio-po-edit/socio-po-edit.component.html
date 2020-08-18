@@ -1,0 +1,216 @@
+<div class="container">
+  <form [formGroup]="addSocioPForm">
+      <div class="card shadow p-3 mb-5 bg-white rounded"
+          fxLayoutAlign="center center">
+
+          <div class="form-row">
+
+            <div class="form-group col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Matriculés payés</mat-label>
+                <input type="number" matInput placeholder="Matriculés payés" formControlName="EnseignantMP"/>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Matriculés non payés</mat-label>
+                <input type="number" matInput placeholder="Matriculés non payés" formControlName="EnseignantMNP"/>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Nouvelles unités payés</mat-label>
+                <input type="number" matInput placeholder="Nouvelles unités payés" formControlName="EndeignantNUP"/>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Nouvelles unités non payés</mat-label>
+                <input type="number" matInput placeholder="Nouvelles unités non payés" formControlName="EndeignantNUNP"/>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre d'écoles publiques</mat-label>
+                  <input type="number" matInput placeholder="Nombre d'écoles publiques" formControlName="NbreEcole"/>
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre de Dit Produits par le Parlement</mat-label>
+                  <input type="number" matInput placeholder="Nombre de Dit Produits par Parlement" formControlName="NbreDeDitProductionsParlement"/>
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombre d'Arreté Produit par le Gouverneur</mat-label>
+                  <input type="number" matInput placeholder="Nombre d'Arreté Produit par Gourneur" formControlName="NbreArreteProduitGourneur"/>
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Frais de fonctionnement</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="FraisFonctionnementEcole">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of frais" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Revendication</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="Revendication">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of revendication" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Structures Sanitaire sont-elle Accessible Population?</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="StructureSanitaireAccessiblePopulation">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Population Recour-t-elle à la Medecin Traditionnel?</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="PopulationRecourMedecinTraditionnel">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Jeune ont-il Accès aux Structures Sanitaire?</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="JeuneAccesStructureSanitaire">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Relation Assemblée et Gouvernement Provincial</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="RelationAssembleGouvProv">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Relation Gouvernementale et Organe Judiciaire</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="RelationGouvernementOrganeJudiciare">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Relation Gouvernement Provincial - Organes Judiciaire</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="RelationAssemblePouvoirJudiciaire">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Relation Entre ETD et ETD</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="RelationEntreETDETD">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Relation Autorité local Et Societe Civile</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="RelationAutoriteEtSocieteCivile">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Relation entre Officiel et Media</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="RelationOfficielEtMedia">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Exist-t-il un Programme de Developpement?</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="ProgrammeDev">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of booleen" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-6">
+                <label id="example-radio-group-label">Existe-t-il un Budget Participatif?</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        formControlName="Budgetpart">
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of booleen" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="form-group col-md-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Province</mat-label>
+                    <select matNativeControl (change)="changeCountry($event.target.value)" formControlName="Province">
+                        <option value="{{count.name}}" *ngFor="let count of countryList">{{count.name}}</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Ville</mat-label>
+                    <select matNativeControl formControlName="CommunaleUrbain">
+                        <option value="Aucun">== Aucun selectionner ==</option>
+                        <option value="{{city}}" *ngFor ="let city of ville">{{city}}</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Chefferie / Secteur</mat-label>
+                    <select matNativeControl formControlName="CheferieSecteur">
+                        <option value="Aucun">== Aucun selectionner ==</option>
+                        <option value="{{city}}" *ngFor ="let city of secteurCheferie">{{city}}</option>
+                    </select>
+                </mat-form-field>
+
+                <div class="form-group col-md-12">
+                  <mat-label>Etat Général Socio-Politique</mat-label>
+                  <ckeditor data="<p>Etat Général Socio-Politique.</p>" formControlName="RapportGeneralSocio"></ckeditor>
+                </div>
+              </div>
+
+
+              <div class="form-group col-md-12">
+                <button
+                  type="submit"
+                  (click)="onSubmit()"
+                  mat-raised-button
+                  class="btn"
+                  color="primary"
+                  [disabled]="!addSocioPForm.valid">
+                  Modifier
+                </button>
+              </div>
+
+            <!-- <div>
+              <mat-progress-bar *ngIf="isLoading" fxLayout="row" fxLayoutAlign="center center" mode="indeterminate"
+                color="primary" class="m-0 ">
+              </mat-progress-bar>
+            </div> -->
+          </div>
+      </div>
+  </form>
+</div>

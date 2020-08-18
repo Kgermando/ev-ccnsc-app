@@ -1,0 +1,111 @@
+<div class="container">
+  <form [formGroup]="addSecureForm">
+    <div class="card shadow p-3 mb-5 bg-white rounded"
+        fxLayoutAlign="center center">
+
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Identification des Zones de Tension</mat-label>
+              <input type="text" matInput placeholder="Identification des Zones de Tension" formControlName="IdentificationZoneTension"/>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Elements de Violation de Droits Humains</mat-label>
+              <input type="text" matInput placeholder="Elements de Violation de Droits Humains" formControlName="ElementViolationDroitHumain"/>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Nbre de Groupes Armés Actif dans la Region</mat-label>
+              <input type="number" matInput placeholder="Nbre de Groupes Armés Actif dans la Region" formControlName="NbreGroupeArmeActifRegion"/>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Elements de Criminalité Urbain et Rural</mat-label>
+              <input type="text" matInput placeholder="Elements de Criminalité Urbain et Rural" formControlName="ElementCriminaliteUrbainRurale"/>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-6">
+            <label id="example-radio-group-label">Existe-t-il des cas de Violence Sexuel?</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    formControlName="ViolViolenceSexuel">
+              <mat-radio-button class="example-radio-button" *ngFor="let season of booleen" [value]="season">
+                {{season}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+            <div class="form-group col-md-6">
+              <label id="example-radio-group-label">Existe-t-il une Initiave de Paix?</label>
+              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                      formControlName="InitiavesPaixImplique">
+                <mat-radio-button class="example-radio-button" *ngFor="let season of booleen" [value]="season">
+                  {{season}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="form-group col-md-6">
+              <label id="example-radio-group-label">Relation entre Acteurs de Sécurité et la Societé Civile</label>
+              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                      formControlName="RelationActeurSecuritSocieteCivile">
+                <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                  {{season}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="form-group col-md-6">
+              <label id="example-radio-group-label">Relation entre Acteur de Sécurité et Media</label>
+              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                      formControlName="RelationActeurSecuriteMedia">
+                <mat-radio-button class="example-radio-button" *ngFor="let season of qualite" [value]="season">
+                  {{season}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="form-group col-md-12">
+              <mat-form-field appearance="outline">
+                  <mat-label>Province</mat-label>
+                  <select matNativeControl (change)="changeCountry($event.target.value)" formControlName="Province">
+                      <option value="{{count.name}}" *ngFor="let count of countryList">{{count.name}}</option>
+                  </select>
+              </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Ville</mat-label>
+                <select matNativeControl formControlName="CommunaleUrbain">
+                    <option value="volvo">== Aucun selectionner ==</option>
+                    <option value="{{city}}" *ngFor ="let city of ville">{{city}}</option>
+                </select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Chefferie / Secteur</mat-label>
+                <select matNativeControl formControlName="CheferieSecteur">
+                    <option value="volvo">== Aucun selectionner ==</option>
+                    <option value="{{city}}" *ngFor ="let city of secteurCheferie">{{city}}</option>
+                </select>
+            </mat-form-field>
+
+            <div class="form-group col-md-12">
+              <mat-label>Etat Général Sécuritaire</mat-label>
+              <ckeditor data="<p>Etat Général Sécuritaire.</p>" formControlName="RapportGeneraleSecure"></ckeditor>
+            </div>
+
+          <div>
+            <div class="form-group col-md-12">
+              <button
+                type="submit"
+                class="btn"
+                (click)="onSubmit()"
+                mat-raised-button
+                color="primary"
+                [disabled]="!addSecureForm.valid">
+                Modifier
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,48 @@
+
+section {
+  width: 100%;
+  height: 100vh;
+  align-self: center;
+}
+
+.container {
+
+  align-self: center;
+  // color: rgb(231, 231, 231);
+  // background-color: rgb(39, 39, 39);
+  // -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  // -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  // box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+  
+}
+
+.logo {
+  width: 100px;
+  cursor: pointer;
+}
+
+// /* Border */
+// .mat-form-field-appearance-outline .mat-form-field-outline {
+//   color: white;
+// }
+// /* Font color */
+// input.mat-input-element,
+// .mat-select-value-text,
+// .mat-select-arrow {
+//   color: white;
+// }
+// .placeholder {
+//   color: white;
+// }
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+

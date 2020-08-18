@@ -1,0 +1,82 @@
+<div class="container m">
+  <form [formGroup]="signupform">
+      <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" class="mt-100">
+
+        <div class="header-1 text">Page d'enregistrement</div>
+        <div class="header-2 text">Renseigner les informations du nouveau compte</div>
+
+      <div>
+        <mat-progress-bar *ngIf="isLoading" fxLayout="row" fxLayoutAlign="center center" mode="indeterminate"
+          color="primary" class="m-0 ">
+        </mat-progress-bar>
+
+        <mat-card class="p-80" [class.mat-elevation-z10]="true">
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" class="p-50px">
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px">
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom et Prénom</mat-label>
+                  <input type="text" matInput placeholder="Votre nom complet" formControlName="name"/>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px">
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input type="email" matInput placeholder="Type in Email" formControlName="email"/>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput placeholder="Votre mot de passe" formControlName="password"/>           
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px">
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Téléphone</mat-label>
+                  <input type="text" matInput placeholder="Numero de Téléphone" formControlName="phone"/>
+                </mat-form-field>
+              </div>
+              <div>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Rôle</mat-label>
+                      <mat-select
+                        formControlName="role"
+                        disableOptionCentering>
+                        <mat-option
+                          *ngFor="let role of roles | keyvalue"
+                          [value]="role.key">{{ role.value }}</mat-option>
+                      </mat-select>
+                      
+                    </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px">
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <input type="text" matInput placeholder="Adresse email" formControlName="useraddress"/>
+                </mat-form-field>
+              </div>
+            </div>
+    
+            <div>
+                <div>
+                    <button type="submit" (click)="onSubmit()" mat-raised-button color="primary" class="w-180 mt-30" >
+                        Sign Up
+                      </button>
+                  </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      </div>
+  </form>
+</div>
+
+  

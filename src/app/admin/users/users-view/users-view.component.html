@@ -1,0 +1,50 @@
+
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px" class="mt-164" *ngIf="user; else spinner">
+ 
+    <mat-card class="p-40" [class.mat-elevation-z10]="true">
+        <div fxLayout="row" fxLayoutAlign="start start">
+            <div  class='font-size-20'>ID Unique:</div>
+            <div  class='font-size-80'>{{ user.uid }}</div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start start">
+            
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div class='font-size-20'>Nom:</div>
+                <div class='font-size-80'>{{ user.name }}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div class='font-size-20'>Numéro:</div>
+                <div class='font-size-80'>{{ user.phoneNumber }}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div class='font-size-20'>Mail:</div>
+                <div class='font-size-80' >{{ user.email }}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div class='font-size-20'>Etat Civile:</div>
+                <div class='font-size-80' >{{ user.etatCivile }}</div>
+            </div>
+
+            <br>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+                <div class='font-size-20'>Permission:</div>
+                <div class='font-size-80' >{{ user.role }}</div>
+            </div>
+
+            <br>
+            <div fxLayout="row wrap" fxLayoutAlign="start start">
+                <div class='font-size-20'>Adresse:</div>
+                <div class='message maxh-80'>{{ user.useraddress }}</div>
+            </div>
+        </div>
+
+    </mat-card>
+</div>
+
+<ng-template #spinner>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+</ng-template>

@@ -1,0 +1,69 @@
+<div class="container" *ngIf="loading">
+  <div class="d-flex justify-content-center">
+      <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+<div class="container m">
+  <div
+    fxLayout="column"
+    fxLayoutAlign="flex-start flex-start" *ngIf="!loading">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <h3 class="text-break">Rapport du {{ economieView.Created | date:'dd/MM/yyy à H:mm:ss'}}</h3>
+        <br>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-break"><b>Taux D'échange Dollard:</b> {{ economieView.TauxDeCHangeDollard }} FC</li>
+          <li class="list-group-item text-break"><b>Taux d'échange en Fc:</b> {{ economieView.TauxDeCHangeFc }} $</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Mais:</b> {{ economieView.PrixDenreMais }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Riz:</b> {{ economieView.PrixDenreRiz }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Haricot:</b> {{ economieView.PrixDenreHaricot }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Sucre:</b> {{ economieView.PrixDenreSucre }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Lait:</b> {{ economieView.PrixDenreLait }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Thé:</b> {{ economieView.PrixDenreThe }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Café:</b> {{ economieView.PrixDenreCafe }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Tomate:</b> {{ economieView.PrixDenreTomate }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Sel:</b> {{ economieView.PrixDenreSel }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs d'Ail:</b> {{ economieView.PrixDenreAil }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Savon:</b> {{ economieView.PrixDenreSavon }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Margarin:</b> {{ economieView.PrixDenreMargarin }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Spaghetti:</b> {{ economieView.PrixDenreSpaghetti }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de farine de Froma:</b> {{ economieView.PrixDenreFroma }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs de Poissons:</b> {{ economieView.PrixDenrePoisson }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs d'Huile Rouge:</b> {{ economieView.PrixDenreHuileRouge }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Kgs d'Huile Jaune:</b> {{ economieView.PrixDenreHuileJaune }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Litre d'Essence:</b> {{ economieView.PrixDuEssence }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Litre de Prétrole:</b> {{ economieView.PrixDuPretrole }} FC</li>
+          <li class="list-group-item text-break"><b>Prix d'un Litre de Mazoute:</b> {{ economieView.PrixDuMazoute }} FC</li>
+          <li class="list-group-item text-break"><b>Qualité de la RN:</b> {{ economieView.QualiteRN }}</li>
+          <li class="list-group-item text-break"><b>Nom de la RN:</b> {{ economieView.NomRN }}</li>
+          <li class="list-group-item text-break"><b>Qualité du Chemin de Fer:</b> {{ economieView.QualiteCheminDeFer }}</li>
+          <li class="list-group-item text-break"><b>Qualité de l'Aéroport:</b> {{ economieView.QualiteAeroport }}</li>
+          <li class="list-group-item text-break"><b>Nom de l'Aéroport:</b> {{ economieView.NomAeroport }}</li>
+          <li class="list-group-item text-break"><b>Qualité de l'Aéroport:</b> {{ economieView.QualiteAeroport }}</li>
+          <li class="list-group-item text-break"><b>Province:</b> {{ economieView.Province }}</li>
+          <li class="list-group-item text-break"><b>CommunaleUrbain:</b> {{ economieView.CommunaleUrbain }}</li>
+          <li class="list-group-item text-break"><b>CheferieSecteur:</b> {{ economieView.CheferieSecteur }}</li>
+        </ul>
+        <br>
+        <div>
+            <h4><b>Rapport detaillé</b></h4>
+            <div class="text-justify" [innerHTML]="economieView.RapportGeneralEconomique"></div>
+        </div>
+    </div>
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+      <h2>Information de l'éditeur</h2>
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item text-break"><b>Nom:</b> {{ agentInfo.name }}</li>
+          <li class="list-group-item text-break"><b>Téléphone:</b> {{ agentInfo.phoneNumber }}</li>
+          <li class="list-group-item text-break"><b>Email:</b> {{ agentInfo.email }}</li>
+          <li class="list-group-item text-break"><b>Adresse physique:</b> {{ agentInfo.useraddress }}</li>
+          <li class="list-group-item text-break"><b>Niveau d'acréditation:</b> {{ agentInfo.role }}</li>
+          <li class="list-group-item text-break"><b>Etat Civile:</b> {{ agentInfo.etatCivile }}</li>
+          <li class="list-group-item text-break"><b>Identifiant Unique:</b> {{ agentInfo.uid }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+

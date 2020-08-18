@@ -1,0 +1,56 @@
+<div class="container" *ngIf="loading">
+    <div class="d-flex justify-content-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+
+<div class="container m">
+    <div
+        fxLayout="column"
+        fxLayoutAlign="flex-start flex-start" *ngIf="!loading">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+            <h3 class="text-break">Rapport du {{ covidView.Created | date:'dd/MM/yyy à H:mm:ss'}}</h3>
+            <br>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-break"><b>Nombre de Contaminés:</b> {{ covidView.NbreTotalContamine }}</li>
+                <li class="list-group-item text-break"><b>Nombre de Contaminés par Femme:</b> {{ covidView.NbreContaminerFemme }}</li>
+                <li class="list-group-item text-break"><b>Nombre de Contaminés par Homme:</b> {{ covidView.NbreTotalContamine - covidView.NbreContaminerFemme }}</li>
+                <br>
+                <li class="list-group-item text-break"><b>Nombre de Guéris:</b> {{ covidView.NbreTotalGueris }}</li>
+                <li class="list-group-item text-break"><b>Nombre de Guéris par Femme:</b> {{ covidView.NbreGuerisFemme }}</li>
+                <li class="list-group-item text-break"><b>Nombre de Guéris par Homme:</b> {{ covidView.NbreTotalGueris - covidView.NbreGuerisFemme }}</li>
+                <br>
+                <li class="list-group-item text-break"><b>Nombre de Décès:</b> {{ covidView.NbreTotalDeces }}</li>
+                <li class="list-group-item text-break"><b>Nombre de Décès par Femme:</b> {{ covidView.NbreDecesFemme }}</li>
+                <li class="list-group-item text-break"><b>Nombre de Décès par Homme:</b> {{ covidView.NbreTotalDeces - covidView.NbreDecesFemme }}</li>
+            </ul>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-break"><b>Etat des Financements des Structures Sanitaire:</b> {{ covidView.EtatFinancementStructureSanitaire }}</li>
+                <li class="list-group-item text-break"><b>Accesbilité des Structures Santaire à la Population:</b> {{ covidView.AccesbiliteStructureSantairePopulation }}</li>
+            </ul>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-break"><b>Province:</b> {{ covidView.Province }}</li>
+                <li class="list-group-item text-break"><b>Ville:</b> {{ covidView.CommunaleUrbain }}</li>
+                <li class="list-group-item text-break"><b>Cheferie / Secteur:</b> {{ covidView.CheferieSecteur }}</li>
+            </ul>
+            <br>
+            <div>
+                <h4><b>Rapport detaillé</b></h4>
+                <p class="text-justify">{{ covidView.RapportGeneraleCovid }}</p>
+            </div>
+        </div>
+
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+            <h2>Information de l'éditeur</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-break"><b>Nom:</b> {{ agentInfo.name }}</li>
+                <li class="list-group-item text-break"><b>Téléphone:</b> {{ agentInfo.phoneNumber }}</li>
+                <li class="list-group-item text-break"><b>Email:</b> {{ agentInfo.email }}</li>
+                <li class="list-group-item text-break"><b>Adresse physique:</b> {{ agentInfo.useraddress }}</li>
+                <li class="list-group-item text-break"><b>Niveau d'acréditation:</b> {{ agentInfo.role }}</li>
+                <li class="list-group-item text-break"><b>Etat Civile:</b> {{ agentInfo.etatCivile }}</li>
+                <li class="list-group-item text-break"><b>Identifiant Unique:</b> {{ agentInfo.uid }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

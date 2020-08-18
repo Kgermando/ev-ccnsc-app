@@ -1,0 +1,111 @@
+<mat-nav-list>
+    <div class="profile-card" *ngIf="authService.user$ | async as user">
+        <div class="header" >
+            <h2>{{ user?.name }}</h2>
+            <h4>{{ user?.email }}</h4>
+            <!-- <h5>{{ user?.roles.admin }}</h5> -->
+        </div>
+        <img [src]="user?.photoURL" alt="Photo de {{user?.name}} ">
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- <h2 matSubheader>Statistiques</h2> -->
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>ASPECT SANTE</h2>
+ 
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-sante/sante-covid/sante-covid-home" routerLinkActive="active-link">
+        <mat-icon>ac_unit</mat-icon>
+        Stats Santé-covid-19
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-sante/sante-covid/sante-covid-list" routerLinkActive="active-link">
+        <mat-icon>list</mat-icon>
+        Liste Santé-covid-19
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-sante/sante-ebola/sante-ebola-home" routerLinkActive="active-link">
+        <mat-icon>ac_unit</mat-icon>
+        Stats Santé-Ebola
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-sante/sante-ebola/sante-ebola-list" routerLinkActive="active-link">
+        <mat-icon>list</mat-icon>
+        Liste Santé-Ebola
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>ASPECT ECONOMIE</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-economie/admin-eco-home" routerLinkActive="active-link">
+        <mat-icon>local_atm</mat-icon>
+        Stats Economique
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-economie/admin-eco-list" routerLinkActive="active-link">
+        <mat-icon>list</mat-icon>
+        Liste Economique
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>ASPECT SOCIO-POLITIQUE</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-socio-politique/admin-socio-po-home" routerLinkActive="active-link">
+        <mat-icon>how_to_reg</mat-icon>
+        Stats Socio-Politique
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-socio-politique/admin-socio-po-list" routerLinkActive="active-link">
+        <mat-icon>list</mat-icon>
+        Liste Socio-Politique
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>ASPECT SECURITE</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-securitaire/admin-securitaire-home" routerLinkActive="active-link">
+        <mat-icon>security</mat-icon>
+        Stats sécurité
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-securitaire/admin-securitaire-list" routerLinkActive="active-link">
+        <mat-icon>list</mat-icon>
+        Liste sécurité
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>ASPECT ENVIRONNEMENT</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-environnement/admin-env-home" routerLinkActive="active-link">
+        <mat-icon>nature_people</mat-icon>
+        Stats Environnementale
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/admin-environnement/admin-env-list" routerLinkActive="active-link">
+        <mat-icon>list</mat-icon>
+        Liste Environnementale
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>History</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/history" routerLinkActive="active-link">
+        <mat-icon>history</mat-icon>
+        Historique
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Utilisateurs</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/users/user-add" routerLinkActive="active-link">
+        <mat-icon>person_add</mat-icon>
+        Nouvel Agent
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/users/users-list" routerLinkActive="active-link">
+        <mat-icon>people_outline</mat-icon>
+        Tous les Agents
+    </a>
+
+</mat-nav-list>

@@ -1,0 +1,57 @@
+<div>
+    <mat-toolbar color="primary" class="primary-background mat-elevation-z10">
+      <mat-toolbar-row>
+        <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+          <mat-icon>menu</mat-icon>
+        </button> -->
+        <a routerLink="/layouts" mat-button matTooltip="CCNSC">
+          <img class="logo" src="assets/img/logo.png" alt="logo CCNSC">
+        </a>
+        <span class="menu-spacer"></span>
+        <div fxShow="true" fxHide.lt-md></div>
+        <div class="auth_cart" *ngIf="authService.user$ | async as user">
+          <span *ngIf="authService.user$ | async as user">
+            <a routerLink="/admin" mat-button matTooltip="Admin" routerLinkActive="active-link" *ngIf="user?.role === 'Admin'">
+              <mat-icon aria-hidden="false" aria-label="Fast Smart Admin">settings</mat-icon>
+            </a>
+          </span>
+          <button mat-button [matMenuTriggerFor]="menu" matTooltip="Menu Authentification">
+            <img class="profile" [src]="user?.photoURL" alt="ccnsc">
+            <!-- <img class="profile" src="../../assets/img/img_2.jpg" alt="ccnsc"> -->
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/layouts/dashboard/profile" routerLinkActive="active-link">
+              <mat-icon aria-hidden="false" aria-label="Tableau de Bord CCNSC">person</mat-icon>
+              Tableau de Bord
+            </button>
+            <button mat-menu-item (click)="signOut()" routerLinkActive="active-link" >
+              <mat-icon aria-hidden="false" aria-label="Logout CCNSC">exit_to_app</mat-icon>
+              Déconnexion
+            </button>
+          </mat-menu>
+        </div>
+        <!-- <mat-icon class="mat-18">keyboard_arrow_down</mat-icon> -->
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill>
+      <mat-sidenav #sidenav (click)="sidenav.close()">
+        <mat-nav-list>
+          <!-- <a routerLink="/layouts/home" mat-list-item routerLinkActive="active-link">
+            <mat-icon aria-hidden="false" aria-label="CCNSC home">home</mat-icon>
+            Acceuil
+          </a> -->
+          <span *ngIf="authService.user$ | async as user">
+            <a routerLink="/admin" mat-list-item matTooltip="Admin" routerLinkActive="active-link" *ngIf="user?.role === 'Admin'">
+             <mat-icon aria-hidden="false" aria-label="CCNSC Admin">settings</mat-icon>
+             Admin
+           </a>
+         </span>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content fxFlexFill>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

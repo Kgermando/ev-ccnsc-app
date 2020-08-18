@@ -1,0 +1,89 @@
+<form [formGroup]="UpdateProfileForm" id="file-upload-form" class="uploader">
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="30px" class="mt-100">
+      <mat-card [class.mat-elevation-z10]="true">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" class="px-150">
+          <div class="dropzone" DropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
+            [class.hovering]="isHovering" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px"
+            style="width: 150%;" class="pt-20">
+            <input id="file-upload" type="file" name="fileUpload" accept="image/*"
+              (change)="startUpload($event.target.files)" />
+            <label for="file-upload" id="file-drag">
+              <img id="file-image" src="#" alt="Preview" class="hidden" />
+              <div id="start">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <div>Select a file or drag here</div>
+                <div id="notimage" class="hidden">Please select an image</div>
+                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+              </div>
+              <div id="response" class="hidden">
+                <div id="messages"></div>
+                <div *ngIf="percentage | async as pct">
+                  <progress class="progress is-info" [value]="pct" max="100" id="file-progress">
+                    <span>{{ pct }}</span>%
+                  </progress>
+                </div>
+              </div>
+            </label>
+          </div>
+  
+          <div *ngIf="percentage | async as pct">
+            <progress class="progress is-info" [value]="pct" max="100">
+            </progress>
+  
+            {{ pct | number }}%
+          </div>
+  
+          <div *ngIf="snapshot | async as snap">
+            <div *ngIf="downloadURL | async as url">
+              <img [src]="url" />
+            </div>
+          </div>
+  
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Nom Complet" formControlName="name" />
+              </mat-form-field>
+            </div>
+  
+            <div>
+              <mat-form-field appearance="outline" >
+                <mat-label>email</mat-label>
+                <input type="text" matInput placeholder="Email" formControlName="email" />
+              </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" >
+                  <mat-label>phoneNumber</mat-label>
+                  <input type="number" matInput placeholder="phoneNumber" formControlName="phoneNumber" />
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Etat Civile</mat-label>
+                    <select matNativeControl formControlName="etatCivile" required>
+                      <option value="Marié">Marié</option>
+                      <option value="Célibataire">Célibataire</option>
+                    </select>
+                  </mat-form-field>
+              </div>
+            <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Addresse</mat-label>
+                <input type="text" matInput placeholder="Votre addresse" formControlName="useraddress" />
+              </mat-form-field>
+            </div>
+  
+            <div>
+              <div>
+                <button type="submit" (click)="onSubmit()" mat-raised-button color="primary">
+                  Update Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </form>

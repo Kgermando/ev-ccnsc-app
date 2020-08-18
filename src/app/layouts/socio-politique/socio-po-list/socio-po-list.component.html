@@ -1,0 +1,79 @@
+
+<section class="container eco-list">
+    <button mat-raised-button color="primary" (click)="addProductClick()" class="primary-background w-180 mat-elevation-z8">
+        <mat-icon>add</mat-icon>
+    </button>
+
+    <br>
+
+    <div fxLayout="column" class="m-10 mat-elevation-z8">
+        <div class="example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="Created" sticky>
+                <th mat-header-cell *matHeaderCellDef> Date et Heure </th>
+                <!-- <td mat-cell *matCellDef="let element"> {{element.name}} </td> -->
+                <mat-cell *matCellDef="let element">
+                    <a [routerLink]="[ '/layouts/socio-politique/socio-p-view', element.id ]">
+                        {{ element.Created.toDate()| date: 'dd/MM/yyyy HH:mm:ss' }}
+                    </a>
+                </mat-cell>
+              </ng-container>
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="EnseignantMP">
+                <th mat-header-cell *matHeaderCellDef> Enseignant MP </th>
+                <td mat-cell *matCellDef="let element"> {{element.EnseignantMP}}</td>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="EnseignantMNP">
+                <th mat-header-cell *matHeaderCellDef> Enseignant MNP </th>
+                <td mat-cell *matCellDef="let element"> {{element.EnseignantMNP}}</td>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="NbreEcole">
+                <th mat-header-cell *matHeaderCellDef> Nom0bre d'école </th>
+                <td mat-cell *matCellDef="let element"> {{element.NbreEcole}}</td>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="RevendicationPR">
+                <th mat-header-cell *matHeaderCellDef> Revendication PR </th>
+                <td mat-cell *matCellDef="let element"> {{element.RevendicationPR}}</td>
+              </ng-container>
+
+               <!-- Star Column -->
+               <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> Modifiez </th>
+                <td mat-cell *matCellDef="let element">
+                  <a [routerLink]="['/layouts/socio-politique/socio-p-edit', element.id ]">
+                    <mat-icon>create</mat-icon>
+                  </a>
+                </td>
+              </ng-container>
+
+               <!-- Star Column -->
+               <ng-container matColumnDef="remove">
+                <th mat-header-cell *matHeaderCellDef> Supprimez </th>
+                <td mat-cell *matCellDef="let element">
+                  <a (click)="removeProduct(element.id)">
+                    <mat-icon>delete_sweep</mat-icon>
+                  </a>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator
+            [pageSizeOptions]="[10, 20, 30]"
+            showFirstLastButtons></mat-paginator>
+        </div>
+
+    </div>
+
+</section>
+

@@ -1,0 +1,48 @@
+<div class="container" *ngIf="loading">
+  <div class="d-flex justify-content-center">     
+      <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+<div class="container m">
+  <div
+      fxLayout="column"
+      fxLayoutAlign="flex-start flex-start" *ngIf="!loading">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+            <h3 class="text-break">Rapport du {{ SecureView.Created | date:'dd/MM/yyy à H:mm:ss'}}</h3>
+            <br>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-break"><b>Identification de Zone de Tension:</b> {{ SecureView.IdentificationZoneTension }}</li>
+            <li class="list-group-item text-break"><b>Element Violation Droit Humain:</b> {{ SecureView.ElementViolationDroitHumain }}</li>
+            <li class="list-group-item text-break"><b>Element de Criminalité Urbain et Rurale:</b> {{ SecureView.ElementCriminaliteUrbainRurale }}</li>
+            <li class="list-group-item text-break"><b> Viol et Violence Sexuel:</b> {{ SecureView.ViolViolenceSexuel }}</li>
+            <li class="list-group-item text-break"><b>Nbre de Groupes Armé Actif dans la Region:</b> {{ SecureView.NbreGroupeArmeActifRegion }}</li>
+            <li class="list-group-item text-break"><b>Initiaves de Paix Impliqué:</b> {{ SecureView.InitiavesPaixImplique }}</li>
+            <li class="list-group-item text-break"><b>Relation de Acteur Securité et Societé Civile:</b> {{ SecureView.RelationActeurSecuritSocieteCivile }}</li>
+            <li class="list-group-item text-break"><b>Relation de Acteur Securité et Média:</b> {{ SecureView.RelationActeurSecuriteMedia }}</li>
+            <li class="list-group-item text-break"><b>Province:</b> {{ SecureView.Province }}</li>
+            <li class="list-group-item text-break"><b>Ville:</b> {{ SecureView.CommunaleUrbain }}</li>
+            <li class="list-group-item text-break"><b>Cheferie / Secteur:</b> {{ SecureView.CheferieSecteur }}</li>
+            <li class="list-group-item text-break"><b>Identification de Zone de Tension:</b> {{ SecureView.IdentificationZoneTension }}</li>
+          </ul>
+          <br>
+          <div>
+              <h4><b>Rapport detaillé</b></h4>
+              <div class="text-justify" [innerHTML]='SecureView.RapportGeneraleSecure'></div>
+          </div>
+
+          <div class="card shadow p-3 mb-5 bg-white rounded">
+            <h2>Information de l'éditeur</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-break"><b>Nom:</b> {{ agentInfo.name }}</li>
+                <li class="list-group-item text-break"><b>Téléphone:</b> {{ agentInfo.phoneNumber }}</li>
+                <li class="list-group-item text-break"><b>Email:</b> {{ agentInfo.email }}</li>
+                <li class="list-group-item text-break"><b>Adresse physique:</b> {{ agentInfo.useraddress }}</li>
+                <li class="list-group-item text-break"><b>Niveau d'acréditation:</b> {{ agentInfo.role }}</li>
+                <li class="list-group-item text-break"><b>Etat Civile:</b> {{ agentInfo.etatCivile }}</li>
+                <li class="list-group-item text-break"><b>Identifiant Unique:</b> {{ agentInfo.uid }}</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
