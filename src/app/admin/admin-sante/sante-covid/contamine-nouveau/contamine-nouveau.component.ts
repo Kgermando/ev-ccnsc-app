@@ -16,10 +16,7 @@ const storageService = function (){
 export class ContamineNouveauComponent implements OnInit {
 
   data;
-  covidData = [];
-  options: any = {};
 
-  covid: Covid;
   totalContamine = 0;
   totalGueris = 0;
   totalDeces = 0;

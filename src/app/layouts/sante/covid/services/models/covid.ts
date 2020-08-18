@@ -16,3 +16,4 @@ export interface Covid {
     Created?: any;
     agentId?: string;
 }
+

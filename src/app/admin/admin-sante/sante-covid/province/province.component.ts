@@ -34,7 +34,7 @@ export class ProvinceComponent implements OnInit {
             legend: {},
             tooltip: {},
             dataset: {
-                dimensions: ['Province', 'NbreTotalContaminer', 'NbreTotalGueris', 'NbreTotalDeces',],
+                dimensions: ['Province', 'NbreTotalContamine', 'NbreTotalGueris', 'NbreTotalDeces',],
                 source: products
             },
             xAxis: {type: 'category'},
